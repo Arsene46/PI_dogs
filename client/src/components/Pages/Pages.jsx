@@ -60,11 +60,12 @@ export default function Pages({ setCurrentPage, breedsPerPage, breedsNum, curren
 // export class Pages extends React.Component {
 
 //     render() {
+//         const currentPage= this.currentPage
 //         const pages = [];
 //         const previous = currentPage > 1;
 //         const dispatch = useDispatch();
 
-//         for (let i = 1; i <= Math.ceil(breedsNum / breedsPerPage); i++) {
+//         for (let i = 1; i <= Math.ceil(this.breedsNum / this.breedsPerPage); i++) {
 //             pages.push(i);
 //         }
 
@@ -82,7 +83,7 @@ export default function Pages({ setCurrentPage, breedsPerPage, breedsNum, curren
 //         }
 
 //         const setPage = (e, p) => {
-//             setCurrentPage(p);
+//             this.setCurrentPage(p);
 //             dispatch(rememberPage(p));
 //         }
 
