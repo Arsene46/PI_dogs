@@ -104,6 +104,7 @@ router.put("/dog/:idBreed", async (req, res, next) => {
     try {
         const { idBreed } = req.params;
         let { name, height, weight, life_span, image, temperaments } = req.body;
+        if (!name, !height, !weight) return res.status(404).send("Missing required data!");
         name = capitalize(name);
         temperaments = temperaments.map(t => capitalize(t));
         const response = await Dog.update({ name, height, weight, life_span, image }, {
@@ -115,6 +116,18 @@ router.put("/dog/:idBreed", async (req, res, next) => {
                 .then((dbTemperament) => { updatedDog.setTemperaments(dbTemperament?.map(t => t[0])) })
                 .then(() => res.send(`${name} updated.`))
         } else return res.status(404).send("Dog id not found!");
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.delete("/temperament", async (req, res, next) => {
+    try {
+        let { temperament } = req.body;
+        temperament = capitalize(temperament);
+        const deleted = await Temperament.destroy({ where: { name: temperament } });
+        if (!deleted) return res.status(404).send("Temperament not found!");
+        return res.send("Deleted");
     } catch (error) {
         next(error);
     }
