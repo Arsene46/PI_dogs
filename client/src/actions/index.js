@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL_API = "https://doogling.herokuapp.com";
+import URL_API from "../index.js";
 
 export function getAllBreeds() {
     return (dispatch) => {

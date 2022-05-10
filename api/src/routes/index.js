@@ -7,12 +7,19 @@ const { getAllData, getApiDetail, preLoadDb, capitalize } = require('./controlle
 const router = Router();
 const isUUID = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/;
 
-preLoadDb();
+(() => {
+    try {
+        preLoadDb();
+    } catch (error) {
+        console.log(error);
+    }
+})();
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get("/", (req,res) => {
+router.get("/", (req, res) => {
     res.send("si funco");
 })
 
@@ -114,3 +121,37 @@ router.put("/dog/:idBreed", async (req, res, next) => {
 });
 
 module.exports = router;
+
+
+/*--------steps to modify heroku
+comment and uncomment db.js
+
+git add .
+git commit -m "el PI entero"
+git subtree push --prefix api heroku main
+heroku logs --tail --app doogling
+
+
+--------------steps to modify vercel
+comment and uncomment actions/index.js
+changes when i push to github
+git add .
+git commit -m "el PI entero"
+git push origin master
+
+*/
+
+// router.post("/dog", (req, res, next) => {
+//     let { name, height, weight, life_span, image, temperaments } = req.body;
+//     if (!name, !height, !weight) return res.status(404).send("Missing required data!");
+//     name = capitalize(name);
+//     Dog.findOrCreate({ where: { name }, defaults: { name, height, weight, life_span, image } })
+//         .then(added => {
+//             if (added[1]) {
+//                 Promise.all(temperaments?.map(t => Temperament.findOrCreate({ where: { name: capitalize(t) } })))
+//                     .then((dbTemperament) => { added[0].addTemperaments(dbTemperament?.map(t => t[0])) })
+//                     .then(() => res.status(201).send("New breed created successfully."))
+//             } else return res.status(302).send("Breeds already exists in DB!");
+//         })
+//         .catch(error => next(error))
+// });

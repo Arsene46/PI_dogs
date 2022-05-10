@@ -16,9 +16,9 @@ const formatLife = (life) => {
     return life.includes("years") ? life.slice(0, -6) : life;
 }
 
-let getApiDetail = async () => {
+const getApiDetail = async () => {
     try {
-        let apiInfo = await axios.get(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`);
+        const apiInfo = await axios.get(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`);
         return apiInfo.data.map(d => {
             return {
                 id: d.id,
@@ -35,7 +35,7 @@ let getApiDetail = async () => {
     }
 };
 
-let getAllData = async () => {
+const getAllData = async () => {
     try {
         let apiInfo = await getApiDetail();
         apiInfo = apiInfo.map(d => {
@@ -58,11 +58,11 @@ let getAllData = async () => {
     }
 };
 
-let preLoadDb = async () => {
+const preLoadDb = async () => {
     try {
         let apiInfo = await getApiDetail();
         //finds all temperaments and adds them to db
-        let temperaments = new Set();
+        const temperaments = new Set();
         apiInfo.forEach(d => d.temperaments?.forEach(t => temperaments.add(capitalize(t))));
         Promise.all([...temperaments].map(async (t) => await Temperament.findOrCreate({ where: { name: t } })))
         //[...temperaments].forEach(async (t) => await Temperament.findOrCreate({ where: { name: t } }));
@@ -92,7 +92,7 @@ let preLoadDb = async () => {
     }
 };
 
-let capitalize = (str) => {
+const capitalize = (str) => {
     return str.split(" ")?.map(w => ((w[0]?.toUpperCase()) || "") + (w.slice(1)?.toLowerCase() || "")).join(" ");
 }
 

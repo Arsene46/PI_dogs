@@ -31,8 +31,8 @@ module.exports = (sequelize) => {
       validate: {
         isUrl: true,
         isCorrectFormat: (value) => {
-          if (value.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gmi) === null){
-            throw new Error ("Image format not valid!");
+          if (value.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gmi) === null) {
+            throw new Error("Image format not valid!");
           }
           // const tiposImgen = ["jpg", "png", "gif", "tiff", "psd", "bmp"];
           // let valueImg = value.split(".");
