@@ -1,0 +1,223 @@
+.breedCreation {
+    background-color: var(--color2);
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 5px 15px;
+    min-height: calc(100vh - 50px);
+    flex-wrap: wrap;
+}
+
+.creationCard {
+    margin-top: 15px;
+    border: 3px solid rgba(0, 0, 0, 0.56);
+    box-shadow: none;
+}
+
+.creationCard:hover {
+    box-shadow: none;
+    cursor: default;
+}
+
+.form {
+    border: 3px solid rgba(0, 0, 0, 0.56);
+    border-radius: 30px;
+    width: fit-content;
+    background-color: var(--color3);
+    /* opacity: 0.8; */
+    padding: 0px 10px 20px;
+    width: 500px;
+    max-width: 90%;
+    height: fit-content;
+    margin-top: 15px;
+}
+
+.buttonCreate {
+    background-color: var(--color5);
+    color: white;
+    border: none;
+    padding: 10px;
+    min-width: 70px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    transition: 0.3s;
+    /* position: relative; */
+    /* right: 18%; */
+}
+
+.buttonCreate:hover {
+    cursor: pointer;
+    background-color: var(--color4);
+}
+
+.buttonCreate:disabled {
+    cursor: default;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.btnClear {
+    margin-left: 10px;
+    /* position: relative; */
+    /* left: 18%; */
+}
+
+.divInputs {
+    height: 87px;
+}
+
+.words {
+    font-size: 1.1em;
+    text-align: left;
+    padding-left: 15%;
+    /* position: relative; */
+}
+
+.inputBox {
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    background-color: rgba(236, 245, 227, 0.85);
+    font-size: 1em;
+    padding: 5px 15px;
+    margin: 5px;
+    width: 72.4%;
+    min-width: 172px;
+    outline: none;
+}
+
+.inputBox:focus {
+    transition: .5s;
+    border-color: #555;
+}
+
+.min {
+    border-right: 2px solid rgba(0, 0, 0, 0.441);
+    margin-right: 0px;
+    border-radius: 30px 0px 0px 30px;
+    width: 33%;
+    min-width: 75px;
+}
+
+.max {
+    border-left: none;
+    margin-left: 0px;
+    border-radius: 0px 30px 30px 0px;
+    width: 33%;
+    min-width: 75px;
+}
+
+.danger {
+    font-size: 1em;
+    color: rgba(201, 18, 18, 0.83);
+    margin-top: 0px;
+    text-align: right;
+    padding-right: 15%;
+}
+
+.dangerBox {
+    transition: .5s;
+    border-color: rgba(201, 18, 18, 0.83);
+}
+
+.dangerBox:focus {
+    transition: .5s;
+    border-color: rgba(201, 18, 18, 0.83);
+}
+
+.lastdiv {
+    height: 65px;
+}
+
+.requiredField {
+    padding-left: 10%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.tempBox {
+    border: 3px solid rgba(0, 0, 0, 0.56);
+    border-radius: 30px;
+    width: fit-content;
+    background-color: var(--color3);
+    padding: 0px 10px 20px;
+    width: 350px;
+    max-width: 90%;
+    height: fit-content;
+    margin-top: 15px;
+}
+
+.newTemp {
+    width: 130px;
+}
+
+.buttonTemp {
+    background-color: var(--color5);
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    margin: 3px;
+    border-left: none;
+    margin-left: 0px;
+    border-radius: 0px 30px 30px 0px;
+    width: 10px;
+    transition: 0.3s;
+}
+
+.temps {
+    background-color: var(--color5);
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    margin: 3px;
+    transition: 0.3s;
+}
+
+.buttonTemp:hover,
+.temps:hover {
+    cursor: pointer;
+    background-color: var(--color4);
+}
+
+.tempList {
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    overflow: auto;
+}
+
+.tempItems {
+    background-color: #ffffff00;
+    width: 105px;
+    border: none;
+    text-align: left;
+    padding: 1px 0px 1px 3px;
+}
+
+.tempItems:hover {
+    cursor: pointer;
+    background-color: var(--color5);
+    color: white;
+}
+
+.selectedItem {
+    background-color: var(--color5);
+    color: white;
+}
+
+.modifyBigBackground {
+    background-color: var(--color3);
+}
+
+.modify {
+    background-color: var(--color2);
+}
+
+@media (max-width: 370px) {
+    .tempList {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,103 @@
+.landing {
+    background-image: url("../../images/landing.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-position: center;
+}
+
+.title {
+    font-size: 5em;
+    color: transparent;
+    background-image: linear-gradient(to left, var(--color4) 45%, var(--color3));
+    background-clip: text;
+    -webkit-background-clip: text;
+    width: fit-content;
+    margin-left: 10vw;
+    margin-top: 32vh;
+}
+
+.btnHover {
+    width: 200px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--color5);
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    position: absolute;
+    left: calc(50vw - 120px);
+    bottom: 10vh;
+}
+
+.btnHover:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    color: var(--color2);
+}
+
+.btnHover:focus {
+    outline: none;
+}
+
+.btnHover.color1 {
+    background-image: linear-gradient(to right, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5));
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 51, 0.75);
+    /* color: linear-gradient(to right, black, white); */
+}
+
+/* .btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+} */
+
+@media (max-width: 700px) {
+    .title{
+        margin-left: 5vw;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .title{
+        margin-left: calc(50vw - 144px);
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 520px) {
+    .title{
+        background-image: linear-gradient(to left, var(--color1) 45%, var(--color3));
+    }
+    .landing {
+        background-position: -80vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .landing {
+        background-position: -100vw;
+    }
+}
+
+@media (max-width: 380px) {
+    .landing {
+        background-position: -120vw;
+    }
+}

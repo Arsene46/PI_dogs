@@ -1,0 +1,46 @@
+.pages {
+    margin: 20px;
+}
+
+.otherpages {
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    transition: 0.5;
+    /* background-color: rgb(9, 117, 6); */
+    background-color: var(--color4);
+    color: white;
+    border-style: none;
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.numbers {
+    width: 38px;
+    height: 30px;
+    border-radius: 20px;
+    transition: 0.5;
+    background-color: var(--color4);
+    /* background-color: rgb(1, 101, 14); */
+    color: white;
+    border-style: none;
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.numbers:hover,
+.otherpages:hover {
+    cursor: pointer;
+    background-color: var(--color5);
+    transition: .3s;
+
+}
+
+.current {
+    background-color: var(--color5);
+}
+
+.current:hover {
+    cursor: default;
+    background-color: var(--color5);
+}

@@ -1,0 +1,67 @@
+.popCard {
+    height: 70vh;
+}
+
+.allDetail{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 5%;
+    padding-bottom: 20px;
+}
+
+.bigImage{
+    border-radius: 20px;
+    object-fit: cover;
+    height: 500px;
+    min-width: 300px;
+    max-width: 60%;
+    max-height: 50vw;
+}
+
+.detailContent {
+    width: 35%;
+}
+
+.textDetail {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonDeleteUpdate {
+    background-color: var(--color4);
+    color: white;
+    border: none;
+    padding: 10px;
+    min-width: 70px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.buttonDeleteUpdate:hover {
+    cursor: pointer;
+    background-color: var(--color5);
+}
+
+@media (max-width: 980px) {
+    .allDetail{
+        flex-direction: column;
+    }
+    .detailContent {
+        width: 100%;
+        max-width: none;
+    }
+    .bigImage{
+        width: 75vw;
+        max-width: none;
+        height: 100%;
+        max-height: none;
+    }
+}
