@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { BrowserRouter } from 'react-router-dom';
 
-let URL_API
+let URL_API = "https://doogling.herokuapp.com";
 if (window.location.href.includes("localhost:3000")) {
   URL_API = "http://localhost:3001";
-} else URL_API = "https://doogling.herokuapp.com";
+}
 
 ReactDOM.render(
   <Provider store={store}>
