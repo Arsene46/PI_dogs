@@ -12,6 +12,10 @@ preLoadDb();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.get("/", (req,res) => {
+    res.send("si funco");
+})
+
 router.get("/dogs", async (req, res, next) => {
     try {
         const { name } = req.query;
