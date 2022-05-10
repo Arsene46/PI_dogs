@@ -1,8 +1,9 @@
 import axios from "axios";
+const URL_API = "https://doogling.herokuapp.com";
 
 export function getAllBreeds() {
     return (dispatch) => {
-        fetch(`http://localhost:3001/dogs`)
+        fetch(`${URL_API}/dogs`)
             .then(r => r.json())
             .then(data => dispatch({ type: "GET_ALL_BREEDS", payload: data }))
             .catch(err => console.log(err.message))
@@ -11,7 +12,7 @@ export function getAllBreeds() {
 
 export function getBreedDetail(id) {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/dogs/${id}`)
+        axios.get(`${URL_API}/dogs/${id}`)
             .then(r => r.data)
             .then(data => dispatch({ type: "GET_BREED_DETAILS", payload: data }))
             .catch(err => {
@@ -24,7 +25,7 @@ export function getBreedDetail(id) {
 
 export function getAllTemperaments() {
     return (dispatch) => {
-        fetch(`http://localhost:3001/temperament`)
+        fetch(`${URL_API}/temperament`)
             .then(r => r.json())
             .then(data => dispatch({ type: "GET_ALL_TEMPERAMENTS", payload: data }))
             .catch(err => console.log(err.message))
@@ -41,7 +42,7 @@ export function rememberPage(payload) {
 
 export function createBreed(newBreed) {
     return (dispatch) => {
-        axios.post(`http://localhost:3001/dog`, newBreed)
+        axios.post(`${URL_API}/dog`, newBreed)
             .then(r => alert(r.data))
             .then(() => dispatch({ type: "RELOAD_HOME" }))
             .catch(err => {
@@ -61,7 +62,7 @@ export function changeNewTemp() {
 
 export function deleteDog(id) {
     return (dispatch) => {
-        axios.delete(`http://localhost:3001/dog/${id}`)
+        axios.delete(`${URL_API}/dog/${id}`)
             .then(r => alert(r.data))
             .then(() => dispatch({ type: "RELOAD_HOME" }))
             .catch(err => {
@@ -73,7 +74,7 @@ export function deleteDog(id) {
 
 export function updateBreed(newBreed, id) {
     return (dispatch) => {
-        axios.put(`http://localhost:3001/dog/${id}`, newBreed)
+        axios.put(`${URL_API}/dog/${id}`, newBreed)
             .then(r => alert(r.data))
             .then(() => dispatch({ type: "RELOAD_HOME" }))
             .catch(err => console.log(err.message))
