@@ -17,7 +17,7 @@ if (process.env.DATABASE_URL) {
         rejectUnauthorized: false
       }
     }
-  }
+  } 
   );
   sequelize
     .authenticate()
