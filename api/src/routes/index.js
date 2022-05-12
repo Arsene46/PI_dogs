@@ -75,14 +75,15 @@ router.post("/dog", async (req, res, next) => {
         name = capitalize(name);
         const added = await Dog.findOrCreate({ where: { name }, defaults: { name, height, weight, life_span, image } });
         if (added[1]) {
-            await Promise.all(temperaments?.map(async (t) => await Temperament.findOrCreate({ where: { name: capitalize(t) } })))
+            if (temperaments) {
+                await Promise.all(temperaments?.map(async (t) => await Temperament.findOrCreate({ where: { name: capitalize(t) } })))
                 .then((dbTemperament) => { added[0].addTemperaments(dbTemperament?.map(t => t[0])) })
-                .then(() => res.status(201).send("New breed created successfully."))
             // temperaments?.forEach(async (t) => {
             //     let dbTemperament = await Temperament.findOrCreate({ where: { name: capitalize(t) } });
             //     await added[0].addTemperament(dbTemperament[0]);
             // });
-            // res.status(201).send("New breed created successfully.");
+            }
+            return res.status(201).send("New breed created successfully.")
         } else return res.status(302).send("Breeds already exists in DB!");
     } catch (error) {
         next(error);
@@ -105,16 +106,18 @@ router.put("/dog/:idBreed", async (req, res, next) => {
         const { idBreed } = req.params;
         let { name, height, weight, life_span, image, temperaments } = req.body;
         if (!name, !height, !weight) return res.status(404).send("Missing required data!");
+        if (!isUUID.test(idBreed)) return res.status(404).send("Dog id not found!");
         name = capitalize(name);
-        temperaments = temperaments.map(t => capitalize(t));
         const response = await Dog.update({ name, height, weight, life_span, image }, {
             where: { id: idBreed }
         });
-        if (response) {
-            const updatedDog = await Dog.findByPk(idBreed);
-            await Promise.all(temperaments?.map(async (t) => await Temperament.findOrCreate({ where: { name: capitalize(t) } })))
+        if (response[0]) {
+            if (temperaments) {
+                const updatedDog = await Dog.findByPk(idBreed);
+                await Promise.all(temperaments?.map(async (t) => await Temperament.findOrCreate({ where: { name: capitalize(t) } })))
                 .then((dbTemperament) => { updatedDog.setTemperaments(dbTemperament?.map(t => t[0])) })
-                .then(() => res.send(`${name} updated.`))
+            }
+            return res.send(`${name} updated.`)
         } else return res.status(404).send("Dog id not found!");
     } catch (error) {
         next(error);

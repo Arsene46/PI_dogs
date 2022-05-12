@@ -64,7 +64,7 @@ const preLoadDb = async () => {
         //finds all temperaments and adds them to db
         const temperaments = new Set();
         apiInfo.forEach(d => d.temperaments?.forEach(t => temperaments.add(capitalize(t))));
-        Promise.all([...temperaments].map(async (t) => await Temperament.findOrCreate({ where: { name: t } })))
+        await Promise.all([...temperaments].map(async (t) => await Temperament.findOrCreate({ where: { name: t } })))
         //[...temperaments].forEach(async (t) => await Temperament.findOrCreate({ where: { name: t } }));
         //await Temperament.bulkCreate([...temperaments].map(t => { return { name: t } }), { validate: true });
 

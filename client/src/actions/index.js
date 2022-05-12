@@ -77,6 +77,9 @@ export function updateBreed(newBreed, id) {
         axios.put(`${URL_API}/dog/${id}`, newBreed)
             .then(r => alert(r.data))
             .then(() => dispatch({ type: "RELOAD_HOME" }))
-            .catch(err => console.log(err.message))
+            .catch(err => {
+                if (err.response?.status === 404) alert(err.response.data);
+                else console.log(err.message);
+            })
     }
 }
