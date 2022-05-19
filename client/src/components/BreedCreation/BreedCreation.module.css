@@ -44,18 +44,6 @@
     /* right: 18%; */
 }
 
-.buttonCreate:hover {
-    cursor: pointer;
-    background-color: var(--color4);
-}
-
-.buttonCreate:disabled {
-    cursor: default;
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
-}
-
 .btnClear {
     margin-left: 10px;
     /* position: relative; */
@@ -214,6 +202,18 @@
 
 .modify {
     background-color: var(--color2);
+}
+
+.buttonCreate:hover {
+    cursor: pointer;
+    background-color: var(--color4);
+}
+
+.buttonCreate:disabled {
+    cursor: default;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }
 
 @media (max-width: 370px) {

@@ -240,11 +240,11 @@ export default function BreedCreation({ modify = false }) {
           className={`${s.inputBox} ${s.min} ${s.newTemp}`} autoComplete="off"
           onKeyPress={(e) => e.code === "Enter" && handleAddTemp()}
           maxLength="15" />
-        <input type="button" value="Add" onClick={handleAddTemp} className={`${s.buttonTemp} ${s.max}`} />
+        <input type="button" value="Add" onClick={handleAddTemp} className={input.temperaments.length === 10 ? `${s.buttonTemp} ${s.max} ${s.buttonCreate}` : `${s.buttonTemp} ${s.max}`} disabled={input.temperaments.length === 7} />
 
         <div className={s.tempList}>
           {temperaments?.map(t =>
-            <input key={t} type="button" value={t} onClick={handleTempChange}
+            <input key={t} type="button" value={t} onClick={handleTempChange} disabled={!input.temperaments.includes(t) && input.temperaments.length === 10}
               className={input.temperaments?.includes(t) ? `${s.tempItems} ${s.selectedItem}` : s.tempItems} />
           )}
         </div>

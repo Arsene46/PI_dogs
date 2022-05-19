@@ -76,7 +76,7 @@ router.post("/dog", async (req, res, next) => {
         const added = await Dog.findOrCreate({ where: { name }, defaults: { name, height, weight, life_span, image } });
         if (added[1]) {
             if (temperaments) {
-                await Promise.all(temperaments?.map(async (t) => await Temperament.findOrCreate({ where: { name: capitalize(t) } })))
+                await Promise.all(temperaments?.map((t) => Temperament.findOrCreate({ where: { name: capitalize(t) } })))
                 .then((dbTemperament) => { added[0].addTemperaments(dbTemperament?.map(t => t[0])) })
             // temperaments?.forEach(async (t) => {
             //     let dbTemperament = await Temperament.findOrCreate({ where: { name: capitalize(t) } });
